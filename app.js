@@ -1,58 +1,65 @@
-require('dotenv').config();
 
-const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express      = require('express');
-const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
+require("dotenv").config();
+const path = require("path");
+const express = require("express");
+const createError = require("http-errors");
+const logger = require("morgan");
+const favicon = require("serve-favicon");
 
+const cookieParser = require("cookie-parser");
+const hbs = require("hbs");
+const mongoose = require("mongoose");
 
-mongoose
-  .connect('mongodb://localhost/doosha', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+// Set up the database
+require("./configs/db.config");
 
-const app_name = require('./package.json').name;
-const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
+// bind user to view - locals
+const bindUserToViewLocals = require("./configs/user-local.config");
 
+// Routers
+const indexRouter = require("./routes/index");
+const authRouter = require("./routes/auth.routes");
+const articleRouter = require("./routes/article.routes");
+const videoRouter = require("./routes/video.routes");
 const app = express();
-
-// Middleware Setup
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+require("./configs/session.config")(app);
 
 // Express View engine setup
 
-app.use(require('node-sass-middleware')({
-  src:  path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  sourceMap: true
-}));
-      
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(bindUserToViewLocals);
 
+const app_name = require("./package.json").name;
+const debug = require("debug")(
+  `${app_name}:${path.basename(__filename).split(".")[0]}`
+);
 
+// Routes middleware
+app.use("/", indexRouter);
+app.use("/", authRouter);
+//app.use("/article", articleRouter);
+//app.use("/video", videoRouter);
 
-// default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+// Catch missing routes and forward to error handler
+app.use((req, res, next) => next(createError(404)));
 
+// Catch all error handler
+app.use((error, req, res) => {
+  // Set error information, with stack only available in development
+  res.locals.message = error.message;
+  res.locals.error = req.app.get("env") === "development" ? error : {};
 
-
-const index = require('./routes/index');
-app.use('/', index);
-
+  // render the error page
+  res.status(error.status || 500);
+  res.render("error");
+});
 
 module.exports = app;

@@ -45,7 +45,7 @@ const debug = require("debug")(
 // Routes middleware
 app.use("/", indexRouter);
 app.use("/", authRouter);
-//app.use("/article", articleRouter);
+app.use("/", articleRouter);
 //app.use("/video", videoRouter);
 
 // Catch missing routes and forward to error handler

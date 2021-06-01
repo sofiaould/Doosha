@@ -1,2 +1,13 @@
 <h1>Articles home</h1>
+
 <a href= "/formarticle">Create your article</a>
+
+<div class = "article-container">
+{{#each articles}}
+    <div class="article-content">
+        <img src = "{{this.image}}"/>
+        <p>{{this.title}}</p>
+        <a href="/articles/{{this._id}}">See more</a>
+    </div>
+{{/each}}
+</div>

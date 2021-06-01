@@ -28,7 +28,7 @@ const videoSchema = new Schema(
     date: {
       type: String,
     },
-    imageUrl: {
+    image: {
       type: String,
     },
   },

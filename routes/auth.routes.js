@@ -27,7 +27,7 @@ router.get("/signup", (req, res) => res.render("auth/signup"));
 // .post() route ==> to process form data
 router.post("/signup", fileUploader.single("image"), (req, res, next) => {
   const { username, firstname, name, email, password } = req.body;
-  const imageUrl = req.file.path;
+  const imageURL = req.file.path;
   if (!username || !firstname || !name || !email || !password) {
     res.render("auth/signup", {
       errorMessage:
@@ -62,7 +62,7 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
         //     ^
         //     |            |--> this is placeholder (how we named returning value from the previous method (.hash()))
         passwordHash: hashedPassword,
-        imageUrl: imageUrl,
+        imageURL
       });
     })
     .then((user) => {

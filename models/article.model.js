@@ -27,7 +27,6 @@ const articleSchema = new Schema(
     },
     date: {
       type: String,
-      /*timestamps: true,*/
     },
     imageUrl: {
       type: String,
@@ -38,4 +37,4 @@ const articleSchema = new Schema(
   }
 );
 
-module.exports = model("article", articleSchema);
+module.exports = model("Article", articleSchema);

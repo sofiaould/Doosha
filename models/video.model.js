@@ -27,7 +27,6 @@ const videoSchema = new Schema(
     },
     date: {
       type: String,
-      /*timestamps: true,*/
     },
     imageUrl: {
       type: String,
@@ -38,4 +37,4 @@ const videoSchema = new Schema(
   }
 );
 
-module.exports = model("video", videoSchema);
+module.exports = model("Video", videoSchema);

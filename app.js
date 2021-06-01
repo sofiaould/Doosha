@@ -20,12 +20,11 @@ const bindUserToViewLocals = require("./configs/user-local.config");
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth.routes");
 const articleRouter = require("./routes/article.routes");
-const videoRouter = require("./routes/video.routes");
+// const videoRouter = require("./routes/video.routes");
 const app = express();
 require("./configs/session.config")(app);
 
 // Express View engine setup
-
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
@@ -42,11 +41,14 @@ const debug = require("debug")(
   `${app_name}:${path.basename(__filename).split(".")[0]}`
 );
 
+// default value for title local
+app.locals.title = 'Doosha';
+
 // Routes middleware
 app.use("/", indexRouter);
 app.use("/", authRouter);
 app.use("/", articleRouter);
-//app.use("/video", videoRouter);
+// app.use("/", videoRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => next(createError(404)));

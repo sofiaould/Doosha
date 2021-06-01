@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router  = express.Router();
-const Article = require("../models/article.js");
+const Article = require("../models/article.model");
 
 /////////////////////////// article home ////////////////////////////////
 router.get('/homearticles', (req, res, next) => {
@@ -32,10 +32,16 @@ router.post('/homearticles', (req, res, next) => {
 });
 
 ////////////////////// article form ////////////////////////////
-
-
 router.get('/formarticle', (req, res, next) => {
   res.render('articles/articleform')
+});
+
+////////////////////// article selected ////////////////////////////
+router.get('/:id', (req, res, next) => {
+  Article.findOne({_id: req.params.id})
+    .then(article => res.render('articles/articleselected', {article}))
+    .catch(err => next(err))
+  ;
 });
 
 

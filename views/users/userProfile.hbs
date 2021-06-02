@@ -1,8 +1,9 @@
-
+<link rel="stylesheet" href="./stylesheets/userprofile.css"/>
 {{#if user}}
     <h2>Welcome, {{ user.username }}!</h2>
-    <p>This is your profile page my friend! And your email is: {{ user.email }}</p>
     <img src="{{user.imageURL}}" alt="photo-user">
+     <p>This is your profile page my friend! We are happy to see you back.</article></p>
+     
 {{else}}
     <p>Still no logged in user, sorry!</p>
 {{/if}}

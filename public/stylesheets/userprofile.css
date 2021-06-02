@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+    
+  }
+  h2{
+      display: grid;
+      place-items: center;
+      margin-top: 20vh;
+      font-size: 4em;
+      font-family: 'PT Serif', serif;
+      
+  }
+
+  img{
+   height: 20vh;
+   width: 35vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 40%;
+   margin-right:50%;
+   
+  }
+p{
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    color: #f19c79;
+    font-size:18px;
+    font-family: 'PT Serif', serif;
+}

@@ -1,0 +1,37 @@
+/** @format */
+* {
+  margin: 0;
+  @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  height: 8vh;
+  font-size: 19px;
+  font-family: 'PT Serif', serif;
+  
+}
+nav a{
+  color: white;
+  text-decoration: none;
+  
+  margin-left: 10px;
+}
+nav a:hover{
+  color:#f19c79;;
+
+}
+.navigation li{
+  display: flex;
+  margin-top: 20px;
+}
+.auth li{
+  display: flex;
+  margin-top: 20px;
+}
+
+.auth li:hover{
+  color:#f19c79;
+}
+

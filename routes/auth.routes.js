@@ -13,8 +13,8 @@ const routeGuard = require("../configs/route-guard.config");
 const fileUploader = require("../configs/cloudinary.config");
 
 ////////////////// get user profil////////////////////////
-router.get('/userProfile', routeGuard, (req, res) => {
-  res.render('users/userProfile');
+router.get("/userProfile", routeGuard, (req, res) => {
+  res.render("users/userProfile");
 });
 
 ////////////////////////////////////////////////////////////////////////
@@ -62,13 +62,13 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
         //     ^
         //     |            |--> this is placeholder (how we named returning value from the previous method (.hash()))
         passwordHash: hashedPassword,
-        imageURL
+        imageURL,
       });
     })
     .then((user) => {
       console.log("Newly created user is: ", user);
       req.session.currentUser = user;
-      res.redirect('/userProfile');
+      res.redirect("/userProfile");
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
@@ -89,43 +89,47 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
 ////////////////////////////////////////////////////////////////////////
 
 // .get() route ==> to display the login form to users
-router.get('/login', (req, res) => res.render('auth/login'));
+router.get("/login", (req, res) => res.render("auth/login"));
 
- //.post() login route ==> to process form data
-router.post('/login', (req, res, next) => {
+//.post() login route ==> to process form data
+router.post("/login", (req, res, next) => {
   const { email, password } = req.body;
 
-  if (email === '' || password === '') {
-    res.render('auth/login', {
-      errorMessage: 'Please enter both, email and password to login.'
+  if (email === "" || password === "") {
+    res.render("auth/login", {
+      errorMessage: "Please enter both, email and password to login.",
     });
     return;
   }
 
   User.findOne({ email })
-    .then(user => {
+    .then((user) => {
       if (!user) {
-        res.render('auth/login', { errorMessage: 'Email is not registered. Try with other email.' });
+        res.render("auth/login", {
+          errorMessage: "Email is not registered. Try with other email.",
+        });
         return;
       } else if (bcryptjs.compareSync(password, user.passwordHash)) {
         req.session.currentUser = user;
-        res.redirect('/userProfile');
+        res.redirect("/userProfile");
       } else {
-        res.render('auth/login', { errorMessage: 'Incorrect password.' });
+        res.render("auth/login", { errorMessage: "Incorrect password." });
       }
     })
-    .catch(error => next(error));
+    .catch((error) => next(error));
 });
 
 ////////////////////////////////////////////////////////////////////////
 ///////////////////////////// LOGOUT ////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
-
-router.post('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   req.session.destroy();
-  res.redirect('/');
+  res.redirect("/");
 });
 
-
+router.post("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
+});
 
 module.exports = router;

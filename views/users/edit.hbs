@@ -1,0 +1,40 @@
+<h2>Edit {{username}}</h2>
+<form action="//{{user.id}}" method="POST">
+  <p>
+    <label>
+      Name:
+      <input type="text" name="name" value="{{user.name}}">
+    </label>
+  </p>
+  <p>
+    <label>
+      Firstname:
+      <input type="text" name="firstname" value="{{user.firstname}}">
+    </label>
+  </p>
+  <p>
+    <label>
+      Username:
+      <input type="text" name="username" value="{{user.username}}">
+    </label>
+  </p>
+  <p>
+    <label>
+      Email:
+      <input type="email" name="email" value="{{user.email}}">
+    </label>
+  </p>
+  <p>
+    <label>
+      Password:
+      <input type="text" name="password" value="{{user.password}}">
+    </label>
+  </p>
+  <p>
+    <label>
+      Image:
+      <input type="text" name="imageURL" value="{{user.imageURL}}">
+    </label>
+  </p>
+  <button>Update your profil</button>
+</form>

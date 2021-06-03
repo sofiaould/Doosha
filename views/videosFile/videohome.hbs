@@ -1,0 +1,15 @@
+<h1>Videos home</h1>
+
+<a href= "/formvideo">Upload your video</a>
+
+<div class = "video-container">
+{{#each video}}
+    <div class="video-content">
+        <img src = "{{this.image}}"/>
+        <p>{{this.title}}</p>
+        <p>{{this.text}}</p>
+        <p>{{this.date}}</p>
+        <a href="/videosfile/{{this._id}}">See more</a>
+    </div>
+{{/each}}
+</div>

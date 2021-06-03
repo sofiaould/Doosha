@@ -20,7 +20,12 @@ const videoSchema = new Schema(
       trim: true,
       required: [true, "title  is required."],
     },
-    videoUrl: {
+    text: {
+      type: String,
+      trim: true,
+      required: [true, "title  is required."],
+    },
+    video: {
       type: String,
       trim: true,
       required: [true, "text is required."],

@@ -1,6 +1,7 @@
 <div id="form">
   <h2>Post my Article</h2>
   <form action="/homearticles" method="POST" enctype="multipart/form-data">
+   
    <label for="input-image">Upload picture</label>
    <input type="file" name="image" id="input-image">
 
@@ -14,9 +15,6 @@
     <input type="texte" id="input-date" name="date" placeholder="02/03/21" />
   
     <button type="submit">Share with the community</button>
-    {{!-- <a href= "/articleselected">Share with the community</a> --}}
-   
-    
 
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>

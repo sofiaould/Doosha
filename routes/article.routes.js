@@ -1,17 +1,16 @@
-
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 const Article = require("../models/article.model");
 const fileUploader = require("../configs/cloudinary.config");
 
 /////////////////////////// article home ////////////////////////////////
-router.get('/homearticles', (req, res, next) => {
+router.get("/homearticles", (req, res, next) => {
   Article.find()
-    .then(articles => res.render('articles/articlehome', {articles}))
-    .catch(err => next(err))
-  ;
+    .then((articles) => res.render("articles/articlehome", { articles }))
+    .catch((err) => next(err));
 });
-router.post('/homearticles', fileUploader.single("image"), (req, res, next) => {
+
+router.post("/homearticles", fileUploader.single("image"), (req, res, next) => {
   const title = req.body.title;
   const text = req.body.text;
   const date = req.body.date;
@@ -20,21 +19,21 @@ router.post('/homearticles', fileUploader.single("image"), (req, res, next) => {
     title,
     text,
     date,
-    image
+    image,
   });
-  article.save()
-    .then(article => {
-      res.redirect('/homearticles');
+  article
+    .save()
+    .then((article) => {
+      res.redirect("/homearticles");
     })
-    .catch(err => {
-      res.render('articles/articleform');
-    })
-  ;
+    .catch((err) => {
+      res.render("articles/articleform");
+    });
 });
 
 ////////////////////// article form ////////////////////////////
-router.get('/formarticle', (req, res, next) => {
-  res.render('articles/articleform')
+router.get("/formarticle", (req, res, next) => {
+  res.render("articles/articleform");
 });
 
 // // .get() route ==> to display the article form to users
@@ -54,12 +53,10 @@ router.get('/formarticle', (req, res, next) => {
 // });
 
 ////////////////////// article selected ////////////////////////////
-// router.get('/:id', (req, res, next) => {
-//   Article.findOne({_id: req.params.id})
-//     .then(article => res.render('articles/articleselected', {article}))
-//     .catch(err => next(err))
-//   ;
-// });
-
+router.get('/:id', (req, res, next) => {
+  Article.findOne({_id: req.params.id})
+    .then(article => res.render('articles/articleselected', {article}))
+    .catch(err => next(err));
+});
 
 module.exports = router;

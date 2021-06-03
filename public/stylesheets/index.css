@@ -29,7 +29,8 @@ img {
   left: 0;
   right: 0;
   top: 80%;
-  color: whitesmoke;
+  /* color: whitesmoke; */
+  color: #f19c79;
   width: 60%;
   font-size: 30px;
 }

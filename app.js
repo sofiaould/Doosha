@@ -20,7 +20,7 @@ const bindUserToViewLocals = require("./configs/user-local.config");
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth.routes");
 const articleRouter = require("./routes/article.routes");
-// const videoRouter = require("./routes/video.routes");
+const videoRouter = require("./routes/video.routes");
 const app = express();
 require("./configs/session.config")(app);
 
@@ -48,7 +48,7 @@ app.locals.title = 'Doosha';
 app.use("/", indexRouter);
 app.use("/", authRouter);
 app.use("/", articleRouter);
-// app.use("/", videoRouter);
+app.use("/", videoRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => next(createError(404)));

@@ -1,3 +1,5 @@
+/** @format */
+
 const express = require("express");
 const router = express.Router();
 const Article = require("../models/article.model");
@@ -32,8 +34,13 @@ router.post("/homearticles", fileUploader.single("image"), (req, res, next) => {
 });
 
 ////////////////////// article form ////////////////////////////
-router.get("/formarticle", (req, res, next) => {
-  res.render("articles/articleform");
+router.get("/formarticle", (req, res, next) => {    
+  if (!req.session.currentUser) {
+    res.redirect("/signup");  // ici proteger /la route article
+  }
+  res.render("articles/articleform", {
+    userInSession: req.session.currentUser,
+  });
 });
 
 // // .get() route ==> to display the article form to users
@@ -53,10 +60,10 @@ router.get("/formarticle", (req, res, next) => {
 // });
 
 ////////////////////// article selected ////////////////////////////
-router.get('/articles/:id', (req, res, next) => {
-  Article.findOne({_id: req.params.id})
-    .then(article => res.render('articles/articleselected', {article}))
-    .catch(err => next(err));
+router.get("/articles/:id", (req, res, next) => {
+  Article.findOne({ _id: req.params.id })
+    .then((article) => res.render("articles/articleselected", { article }))
+    .catch((err) => next(err));
 });
 
 module.exports = router;

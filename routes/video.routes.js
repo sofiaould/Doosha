@@ -1,3 +1,5 @@
+/** @format */
+
 const express = require("express");
 const router = express.Router();
 const Video = require("../models/video.model");
@@ -10,32 +12,42 @@ router.get("/homevideos", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.post("/homevideos", fileUploader.single("image"), fileUploader.single("video"), (req, res, next) => {
-  const title = req.body.title;
-  const text = req.body.text;
-  const date = req.body.date;
-  const image = req.file.path;
-  const video = req.file.path;
-  const videoSecondary = new Video({
-    title,
-    text,
-    video,
-    date,
-    image,
-  });
-  videoSecondary
-    .save()
-    .then((videoSecondary) => {
-      res.redirect("/homevideos");
-    })
-    .catch((err) => {
-      res.render("videosfile/videoform");
+router.post(
+  "/homevideos",
+  fileUploader.single("image"),
+  fileUploader.single("video"),
+  (req, res, next) => {
+    const title = req.body.title;
+    const text = req.body.text;
+    const date = req.body.date;
+    const image = req.file.path;
+    const video = req.file.path;
+    const videoSecondary = new Video({
+      title,
+      text,
+      video,
+      date,
+      image,
     });
-});
+    videoSecondary
+      .save()
+      .then((videoSecondary) => {
+        res.redirect("/homevideos");
+      })
+      .catch((err) => {
+        res.render("videosfile/videoform");
+      });
+  }
+);
 
 ////////////////////// article form ////////////////////////////
 router.get("/formvideo", (req, res, next) => {
-  res.render("videosfile/videoform");
+  if (!req.session.currentUser) {
+    res.redirect("/signup"); // ici proteger /la route video
+  }
+  res.render("videosfile/videoform", {
+    userInSession: req.session.currentUser,
+  });
 });
 
 ////////////////////// article selected ////////////////////////////

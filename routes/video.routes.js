@@ -12,35 +12,30 @@ router.get("/homevideos", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.post(
-  "/homevideos",
-  fileUploader.single("image"),
-  fileUploader.single("video"),
-  (req, res, next) => {
-    const title = req.body.title;
-    const text = req.body.text;
-    const date = req.body.date;
-    const image = req.file.path;
-    const video = req.file.path;
-    const videoSecondary = new Video({
-      title,
-      text,
-      video,
-      date,
-      image,
+router.post("/homevideos", fileUploader.single("image"), (req, res, next) => {
+  const title = req.body.title;
+  const text = req.body.text;
+  const date = req.body.date;
+  const image = req.file.path;
+  const video = req.body.video;
+  const videoSecondary = new Video({
+    title,
+    text,
+    video,
+    date,
+    image,
+  });
+  videoSecondary
+    .save()
+    .then((videoSecondary) => {
+      res.redirect("/homevideos");
+    })
+    .catch((err) => {
+      res.render("videosfile/videoform");
     });
-    videoSecondary
-      .save()
-      .then((videoSecondary) => {
-        res.redirect("/homevideos");
-      })
-      .catch((err) => {
-        res.render("videosfile/videoform");
-      });
-  }
-);
+});
 
-////////////////////// article form ////////////////////////////
+////////////////////// video form ////////////////////////////
 router.get("/formvideo", (req, res, next) => {
   if (!req.session.currentUser) {
     res.redirect("/signup"); // ici proteger /la route video
@@ -50,11 +45,11 @@ router.get("/formvideo", (req, res, next) => {
   });
 });
 
-////////////////////// article selected ////////////////////////////
-// router.get('/videos/:id', (req, res, next) => {
-//   Video.findOne({_id: req.params.id})
-//     .then(video => res.render('videosfile/videoselected', {video}))
-//     .catch(err => next(err));
-// });
+////////////////////// video selected ////////////////////////////
+router.get("/videosfile/:id", (req, res, next) => {
+  Video.findOne({ _id: req.params.id })
+    .then((video) => res.render("videosfile/videoselected", { video }))
+    .catch((err) => next(err));
+});
 
 module.exports = router;

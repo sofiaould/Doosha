@@ -39,7 +39,7 @@ router.get("/formvideo", (req, res, next) => {
 });
 
 ////////////////////// article selected ////////////////////////////
-// router.get('/:id', (req, res, next) => {
+// router.get('/videos/:id', (req, res, next) => {
 //   Video.findOne({_id: req.params.id})
 //     .then(video => res.render('videosfile/videoselected', {video}))
 //     .catch(err => next(err));

@@ -53,10 +53,10 @@ router.get("/formarticle", (req, res, next) => {
 // });
 
 ////////////////////// article selected ////////////////////////////
-router.get('/:id', (req, res, next) => {
-  Article.findOne({_id: req.params.id})
-    .then(article => res.render('articles/articleselected', {article}))
-    .catch(err => next(err));
-});
+// router.get('/:id', (req, res, next) => {
+//   Article.findOne({_id: req.params.id})
+//     .then(article => res.render('articles/articleselected', {article}))
+//     .catch(err => next(err));
+// });
 
 module.exports = router;

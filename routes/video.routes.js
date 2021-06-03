@@ -23,9 +23,9 @@ router.post("/homevideos", fileUploader.single("image"), fileUploader.single("vi
     date,
     image,
   });
-  video
+  videoSecondary
     .save()
-    .then((video) => {
+    .then((videoSecondary) => {
       res.redirect("/homevideos");
     })
     .catch((err) => {

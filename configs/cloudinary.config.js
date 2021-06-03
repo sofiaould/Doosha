@@ -11,18 +11,16 @@ cloudinary.config({
 });
 
 const storage = new CloudinaryStorage({
-  // cloudinary: cloudinary,
   cloudinary,
   params: {
-    // see: https://cloudinary.com/documentation/image_upload_api_reference#optional_parameters
-    folder: "folder-name", // The name of the folder in cloudinary
+    folder: "folder-name",
     allowedFormats: ["jpg", "png", "svg", "mp4"],
-    // resource_type: 'raw', // this is in case you want to upload other type of files, not just images
-    public_id: (req, file) => file.originalname, // The file on cloudinary would have the same name as the original file name
+    resource_type: "auto",
+    public_id: (req, file) => file.originalname,
   },
 });
 
-//                        storage: storage
+
 const uploadCloud = multer({ storage });
 
 module.exports = uploadCloud;

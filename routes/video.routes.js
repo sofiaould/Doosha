@@ -13,9 +13,9 @@ router.get("/homevideos", (req, res, next) => {
 router.post("/homevideos", fileUploader.single("image"), fileUploader.single("video"), (req, res, next) => {
   const title = req.body.title;
   const text = req.body.text;
-  const video = req.file.path;
   const date = req.body.date;
   const image = req.file.path;
+  const video = req.file.path;
   const videoSecondary = new Video({
     title,
     text,

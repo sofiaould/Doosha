@@ -1,0 +1,57 @@
+/** @format */
+
+* {
+  margin: 0;
+  @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap");
+  font-family: "PT Serif", serif;
+}
+#form {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  margin-top: 3vh;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  width: 85vh;
+  height: 80vh;
+}
+
+label {
+  margin: auto;
+}
+
+#input-image {
+  width: 40vh;
+  margin-left: 30%;
+}
+
+#input-title {
+  width: 40vh;
+  margin-left: 30%;
+}
+#input-text {
+  width: 45vh;
+  height: 40vh;
+  margin-left: 30%;
+}
+#input-date {
+  width: 40vh;
+  margin-left: 30%;
+}
+.submit {
+  border-radius: 20px;
+  width: 10em;
+  height: 5vh;
+  margin-top: 20%;
+  margin: auto;
+  background-color: white;
+  color: black;
+  border: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+

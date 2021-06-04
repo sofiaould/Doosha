@@ -30,3 +30,17 @@ p{
     font-size:18px;
     font-family: 'PT Serif', serif;
 }
+
+.edit{
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    font-size:20px;
+    display: flex;
+    margin-top: 35vh;
+
+}
+
+.edit:hover{
+    color:#f19c79;
+}

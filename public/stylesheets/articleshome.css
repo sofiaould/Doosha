@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    
+}
+h1 {
+    display: grid;
+    place-items: center;
+    margin-top: 5vh;
+    font-size:20vh;
+}
+.create{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    font-size:2em;
+    color:darkgrey;
+}
+.create:hover{
+    color:#f19c79;
+}
+img{
+    width: 40vh;
+    margin-top:5vh;
+}
+
+.article-content{
+   margin: auto;
+   display: grid;
+   grid-gap: 1em;
+   grid-template-columns: repeat (auto-fit, minmax(150px, 1fr));
+}

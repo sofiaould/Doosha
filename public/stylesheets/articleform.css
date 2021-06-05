@@ -37,6 +37,7 @@ label {
   width: 45vh;
   height: 40vh;
   margin-left: 30%;
+  white-space: pre-line;
 }
 #input-date {
   width: 40vh;

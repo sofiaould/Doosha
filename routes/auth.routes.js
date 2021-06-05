@@ -13,8 +13,12 @@ const routeGuard = require("../configs/route-guard.config");
 const fileUploader = require("../configs/cloudinary.config");
 
 ////////////////// get user profil////////////////////////
-router.get("/userProfile", routeGuard, (req, res) => {
-  res.render("users/userProfile",{user:req.session.currentUser});
+router.get("/userProfile", routeGuard, (req, res,next) => {
+  User.findById(req.session.currentUser._id) /// pour retrouver la derniere info du user au moment de la connection
+  .then(function(userfromdb){
+    res.render("users/userProfile",{user:userfromdb});
+  })
+  .catch(next)
 });
 
 ////////////////////////////////////////////////////////////////////////
@@ -166,16 +170,17 @@ router.get("/users/edit", (req, res, next) => {
 // });
 
 router.post('/users/edit', (req, res, next) => {
-  User.update({ user: req.session.currentUser }, { $set : {
+  console.log ("coucou",req.session.currentUser._id)
+  User.findByIdAndUpdate(req.session.currentUser._id, {
     name: req.body.name,
     firstname: req.body.firstname,
     username: req.body.username,
     email: req.body.email,
-    // passwordHash: user.passwordHash,
+    //passwordHash: user.passwordHash,
     // imageURL: user.imageURL,
-  }
+  
   },{ new: true })
-    .then(user => res.redirect('/'))
+    .then(user => res.redirect('/userProfile'))
     .catch(err => next(err))
   ;
 });

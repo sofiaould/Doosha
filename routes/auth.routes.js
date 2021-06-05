@@ -13,12 +13,12 @@ const routeGuard = require("../configs/route-guard.config");
 const fileUploader = require("../configs/cloudinary.config");
 
 ////////////////// get user profil////////////////////////
-router.get("/userProfile", routeGuard, (req, res,next) => {
+router.get("/userProfile", routeGuard, (req, res, next) => {
   User.findById(req.session.currentUser._id) /// pour retrouver la derniere info du user au moment de la connection
-  .then(function(userfromdb){
-    res.render("users/userProfile",{user:userfromdb});
-  })
-  .catch(next)
+    .then(function(userfromdb) {
+      res.render("users/userProfile", { user: userfromdb });
+    })
+    .catch(next);
 });
 
 ////////////////////////////////////////////////////////////////////////
@@ -140,12 +140,15 @@ router.post("/logout", (req, res) => {
 ////////////////////////// EDIT / DELETE/ UPDATE USER //////////////
 ////////////////////////////////////////////////////////////////
 
-// router.post('/:id/delete', (req, res, next) => {
-//   Celebrity.findByIdAndRemove(req.params.id)
-//     .then(celebrity => res.redirect('/'))
-//     .catch(err => next(err))
-//   ;
-// });
+router.post("/users/delete", (req, res, next) => {
+  User.findByIdAndRemove(req.session.currentUser._id)
+
+    .then((user) => {
+      req.session.destroy();
+      res.redirect("/");
+    })
+    .catch((err) => next(err));
+});
 router.get("/users/edit", (req, res, next) => {
   User.findOne({ user: req.session.currentUser })
     .then((user) => res.render("users/edit", { user: req.session.currentUser }))
@@ -160,29 +163,40 @@ router.get("/users/edit", (req, res, next) => {
 //       email: req.body.email,
 //       // password: req.body.password,
 //       // imageURL: req.body.image,}
-      
 
-     
 //     },
 //   )
 //     .then((user) => res.redirect("/"))
 //     .catch((err) => next(err));
 // });
 
-router.post('/users/edit', (req, res, next) => {
-  console.log ("coucou",req.session.currentUser._id)
-  User.findByIdAndUpdate(req.session.currentUser._id, {
-    name: req.body.name,
-    firstname: req.body.firstname,
-    username: req.body.username,
-    email: req.body.email,
-    //passwordHash: user.passwordHash,
-    // imageURL: user.imageURL,
-  
-  },{ new: true })
-    .then(user => res.redirect('/userProfile'))
-    .catch(err => next(err))
-  ;
+router.post("/users/edit", (req, res, next) => {
+  console.log("coucou", req.session.currentUser._id);
+  const { name, firstname, username, email, password } = req.body;
+  bcryptjs
+    .genSalt(saltRounds)
+    .then((salt) => bcryptjs.hash(password, salt))
+    .then((hashedPassword) => {
+      return User.findByIdAndUpdate(
+        req.session.currentUser._id,
+        {
+          name,
+          firstname,
+          username,
+          email,
+          passwordHash: hashedPassword, // ce qu'on fait passer en params de son then
+          // imageURL: user.imageURL,
+        },
+        { new: true }
+      );
+    })
+    .then((user) => {
+      console.log("New password: ", user);
+      res.redirect("/userProfile");
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 module.exports = router;

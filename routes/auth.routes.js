@@ -147,21 +147,37 @@ router.get("/users/edit", (req, res, next) => {
     .then((user) => res.render("users/edit", { user: req.session.currentUser }))
     .catch((err) => next(err));
 });
-router.post("/users/edit", (req, res, next) => {
-  User.update(
-    { user: req.session.currentUser },
-    {
+// router.post("/users/edit", (req, res, next) => {
+//   User.update(
+//     { user: req.session.currentUser },
+//     { $set: {        name: req.body.name,
+//       firstname: req.body.firstname,
+//       username: req.body.username,
+//       email: req.body.email,
+//       // password: req.body.password,
+//       // imageURL: req.body.image,}
       
-        name: req.body.name,
-        firstname: req.body.firstname,
-        username: req.body.username,
-        email: req.body.email,
-        // password: req.body.password,
-        // imageURL: req.body.image,
+
      
-    },
-  )
-    .then((user) => res.redirect("/userProfile"))
-    .catch((err) => next(err));
+//     },
+//   )
+//     .then((user) => res.redirect("/"))
+//     .catch((err) => next(err));
+// });
+
+router.post('/users/edit', (req, res, next) => {
+  User.update({ user: req.session.currentUser }, { $set : {
+    name: req.body.name,
+    firstname: req.body.firstname,
+    username: req.body.username,
+    email: req.body.email,
+    // passwordHash: user.passwordHash,
+    // imageURL: user.imageURL,
+  }
+  },{ new: true })
+    .then(user => res.redirect('/'))
+    .catch(err => next(err))
+  ;
 });
+
 module.exports = router;

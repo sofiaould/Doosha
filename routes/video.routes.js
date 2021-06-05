@@ -13,12 +13,14 @@ router.get("/homevideos", (req, res, next) => {
 });
 
 router.post("/homevideos", fileUploader.single("image"), (req, res, next) => {
+  const user = req.session.currentUser._id;
   const title = req.body.title;
   const text = req.body.text;
   const date = req.body.date;
   const image = req.file.path;
-  const video = req.body.video;
+  const video = req.body.video.slice(-11);
   const videoSecondary = new Video({
+    user,
     title,
     text,
     video,

@@ -142,26 +142,26 @@ router.post("/logout", (req, res) => {
 //     .catch(err => next(err))
 //   ;
 // });
-router.get("/users/:id/edit", (req, res, next) => {
-  User.findOne({ _id: req.params.id })
-    .then((user) => res.render("users/edit", { user }))
-    .catch((err) => next(err));
-});
-router.post("/:id", (req, res, next) => {
-  User.update(
-    { _id: req.params.id },
-    {
-      $set: {
-        name: req.body.name,
-        firstname: req.body.firstname,
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-        imageURL: req.body.image,
-      },
-    }
-  )
-    .then((user) => res.redirect("/user-profil"))
-    .catch((err) => next(err));
-});
+// router.get("/users/:id/edit", (req, res, next) => {
+//   User.findOne({ _id: req.params.id })
+//     .then((user) => res.render("users/edit", { user }))
+//     .catch((err) => next(err));
+// });
+// router.post("/:id", (req, res, next) => {
+//   User.update(
+//     { _id: req.params.id },
+//     {
+//       $set: {
+//         name: req.body.name,
+//         firstname: req.body.firstname,
+//         username: req.body.username,
+//         email: req.body.email,
+//         password: req.body.password,
+//         imageURL: req.body.image,
+//       },
+//     }
+//   )
+//     .then((user) => res.redirect("/user-profil"))
+//     .catch((err) => next(err));
+// });
 module.exports = router;

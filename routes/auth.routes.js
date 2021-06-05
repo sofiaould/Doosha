@@ -139,7 +139,9 @@ router.post("/logout", (req, res) => {
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////// EDIT / DELETE/ UPDATE USER //////////////
 ////////////////////////////////////////////////////////////////
-
+router.get("/users/delete", (req, res, next) => {
+  res.render("users/delete");
+});
 router.post("/users/delete", (req, res, next) => {
   User.findByIdAndRemove(req.session.currentUser._id)
 

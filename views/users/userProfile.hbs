@@ -4,11 +4,9 @@
     <img src="{{user.imageURL}}" alt="photo-user">
      <p>This is your profile page my friend! We are happy to see you back.</article></p>
      <a href="users/edit" class ="edit">Edit your profil</a>
-     <form action ="/users/delete" method="POST">
-     <button>delete</button>
-     </form>
-
+    
+<a href ='/users/delete'>Delete your profil</a>
      
-{{else}}
+{{else}}  
     <p>Still no logged in user, sorry!</p>
 {{/if}}

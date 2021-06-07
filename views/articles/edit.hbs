@@ -1,0 +1,21 @@
+<h2>Edit {{title}}</h2>
+<form action="/articles/edit" method="POST">
+  <p>
+    <label>
+      Title:
+      <input type="text" name="title" value="{{article.title}}">
+    </label>
+  </p>
+  <p>
+    <label>
+      Text:
+      <input type="text" name="text" value="{{article.text}}">
+    </label>
+  </p>
+    <label>
+      Image:
+      <input type="file" name="image" value="{{article.image}}">
+    </label>
+  </p>
+  <button>Update your article</button>
+</form>

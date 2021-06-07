@@ -52,4 +52,39 @@ router.get("/articles/:id", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+/////////////////////////////////////////////////////////////////////
+///////////////////////EDIT UPDATE DELETE article///////////////////////////
+////////////////////////////////////////////////////////////////////
+
+router.get("/articles/:id/delete", (req, res, next) => {
+  res.render("articles/delete");
+});
+
+router.post("/articles/:id/delete", (req, res, next) => {
+  Article.findByIdAndRemove(req.params.id)
+    .then((article) => res.redirect("/homearticles"))
+    .catch((err) => next(err));
+});
+
+router.get("/articles/:id/edit", (req, res, next) => {
+  Article.findOne({ _id: req.params.id })
+    .then((article) => res.render("articles/edit", { article }))
+    .catch((err) => next(err));
+});
+
+router.post("/articles/:id", (req, res, next) => {
+  Article.update(
+    { _id: req.params.id },
+    {
+      $set: {
+        title: req.body.title,
+        text: req.body.text,
+        image: req.file.path,
+      },
+    }
+  )
+    .then((article) => res.redirect("/homearticles"))
+    .catch((err) => next(err));
+});
+
 module.exports = router;

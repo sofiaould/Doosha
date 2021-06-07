@@ -1,0 +1,28 @@
+<h2>Edit {{title}}</h2>
+<form action="/videosfile/edit" method="POST">
+  <p>
+    <label>
+      Title:
+      <input type="text" name="title" value="{{video.title}}">
+    </label>
+  </p>
+  <p>
+    <label>
+      Text:
+      <input type="text" name="text" value="{{video.text}}">
+    </label>
+  </p>
+  <p>
+    <label>
+      Video:
+      <input type="text" name="video" value="{{video.video}}">
+    </label>
+  </p>
+  <p>
+    <label>
+      Image:
+      <input type="file" name="image" value="{{video.image}}">
+    </label>
+  </p>
+  <button>Update your video</button>
+</form>

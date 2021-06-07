@@ -5,7 +5,7 @@ const router = express.Router();
 const Video = require("../models/video.model");
 const fileUploader = require("../configs/cloudinary.config");
 
-/////////////////////////// article home ////////////////////////////////
+/////////////////////////// video home ////////////////////////////////
 router.get("/homevideos", (req, res, next) => {
   Video.find()
     .then((videos) => res.render("videosfile/videohome", { videos }))
@@ -52,6 +52,42 @@ router.get("/formvideo", (req, res, next) => {
 router.get("/videosfile/:id", (req, res, next) => {
   Video.findOne({ _id: req.params.id })
     .then((video) => res.render("videosfile/videoselected", { video }))
+    .catch((err) => next(err));
+});
+
+/////////////////////////////////////////////////////////////////////
+///////////////////////EDIT UPDATE DELETE video///////////////////////////
+////////////////////////////////////////////////////////////////////
+
+router.get("/videosfile/:id/delete", (req, res, next) => {
+  res.render("videosFile/delete");
+});
+
+router.post("/videosfile/:id/delete", (req, res, next) => {
+  Video.findByIdAndRemove(req.params.id)
+    .then((video) => res.redirect("/homevideos"))
+    .catch((err) => next(err));
+});
+
+router.get("/videosfile/:id/edit", (req, res, next) => {
+  Video.findOne({ _id: req.params.id })
+    .then((video) => res.render("videosfile/edit", { video }))
+    .catch((err) => next(err));
+});
+
+router.post("/videosfile/:id", (req, res, next) => {
+  Video.update(
+    { _id: req.params.id },
+    {
+      $set: {
+        title: req.body.title,
+        text: req.body.text,
+        video: req.body.video,
+        image: req.file.path,
+      },
+    }
+  )
+    .then((video) => res.redirect("/homevideos"))
     .catch((err) => next(err));
 });
 

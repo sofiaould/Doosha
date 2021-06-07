@@ -19,11 +19,11 @@
         <ul class='auth'>
         <li>
           {{#if user}}
-              <a id="logout-form" href="/logout">Logout</a>
+              <a id="logout-form" href="/logout">Logout</a> <span> | </span>
               <a id="userProfile" href="/userProfile">My profile</a>
           {{else}}
             <a href="/signup">Signup</a> <span> | </span>
-            <a href="/login">Login</a> <span> | </span>
+            <a href="/login">Login</a>
           {{/if}}
         </li>
       </ul>

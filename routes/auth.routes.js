@@ -124,6 +124,11 @@ router.post("/login", (req, res, next) => {
 });
 
 ////////////////////////////////////////////////////////////////////////
+////////////////////LOGIN OR SIGN UP version ensemble///////////////////
+////////////////////////////////////////////////////////////////////////
+router.get("/loginOrsignUp", (req, res) => res.render("auth/loginOrsignUp"));
+
+////////////////////////////////////////////////////////////////////////
 ///////////////////////////// LOGOUT ////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 router.get("/logout", (req, res) => {
@@ -142,35 +147,21 @@ router.post("/logout", (req, res) => {
 router.get("/users/delete", (req, res, next) => {
   res.render("users/delete");
 });
+
 router.post("/users/delete", (req, res, next) => {
   User.findByIdAndRemove(req.session.currentUser._id)
-
     .then((user) => {
       req.session.destroy();
       res.redirect("/");
     })
     .catch((err) => next(err));
 });
+
 router.get("/users/edit", (req, res, next) => {
   User.findOne({ user: req.session.currentUser })
     .then((user) => res.render("users/edit", { user: req.session.currentUser }))
     .catch((err) => next(err));
 });
-// router.post("/users/edit", (req, res, next) => {
-//   User.update(
-//     { user: req.session.currentUser },
-//     { $set: {        name: req.body.name,
-//       firstname: req.body.firstname,
-//       username: req.body.username,
-//       email: req.body.email,
-//       // password: req.body.password,
-//       // imageURL: req.body.image,}
-
-//     },
-//   )
-//     .then((user) => res.redirect("/"))
-//     .catch((err) => next(err));
-// });
 
 router.post("/users/edit", (req, res, next) => {
   console.log("coucou", req.session.currentUser._id);

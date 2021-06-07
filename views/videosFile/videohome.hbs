@@ -1,16 +1,17 @@
 <link rel="stylesheet" href="./stylesheets/homevideo.css" />
 
-<h1>Videos home</h1>
+<h1>Home videos</h1>
 
-<a href= "/formvideo">Upload your video</a>
+<a href="/formvideo">Upload your video</a>
+
 <div class = "video-container"> 
-{{#each videos}}
-    <div class="video-content">
-        <img src = "{{this.image}}"/>
-        <p>{{this.title}}</p>
-        <p>{{this.text}}</p>
-        <p>{{this.date}}</p>
-        <a href="/videosfile/{{this._id}}">See more</a>
-    </div> 
-{{/each}}
+  {{#each videos}}
+  <div class="video-content">
+    <img src="{{this.image}}"/>
+    <p>{{this.title}}</p>
+    <p>{{this.user}}</p>
+    <p>{{this.date}}</p>
+    <a href="/videosfile/{{this._id}}">See more</a>
+  </div> 
+  {{/each}}
 </div>

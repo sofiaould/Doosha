@@ -40,7 +40,8 @@ router.post("/homevideos", fileUploader.single("image"), (req, res, next) => {
 ////////////////////// video form ////////////////////////////
 router.get("/formvideo", (req, res, next) => {
   if (!req.session.currentUser) {
-    res.redirect("/signup"); // ici proteger /la route video
+    // alert("Log in or sign up)");
+    res.redirect("/loginOrSignUp"); // ici proteger /la route video
   }
   res.render("videosfile/videoform", {
     userInSession: req.session.currentUser,

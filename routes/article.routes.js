@@ -13,11 +13,13 @@ router.get("/homearticles", (req, res, next) => {
 });
 
 router.post("/homearticles", fileUploader.single("image"), (req, res, next) => {
+  const user = req.session.currentUser._id;
   const title = req.body.title;
   const text = req.body.text;
   const date = req.body.date;
   const image = req.file.path;
   const article = new Article({
+    user,
     title,
     text,
     date,
@@ -34,30 +36,14 @@ router.post("/homearticles", fileUploader.single("image"), (req, res, next) => {
 });
 
 ////////////////////// article form ////////////////////////////
-router.get("/formarticle", (req, res, next) => {    
+router.get("/formarticle", (req, res, next) => {
   if (!req.session.currentUser) {
-    res.redirect("/signup");  // ici proteger /la route article
+    res.redirect("/loginOrSignUp"); // ici proteger /la route article
   }
   res.render("articles/articleform", {
     userInSession: req.session.currentUser,
   });
 });
-
-// // .get() route ==> to display the article form to users
-// router.get("/formarticle", (req, res) => res.render("articles/articleform"));
-
-// // .post() route ==> to process form data
-// router.post("/formarticle", fileUploader.single("image"), (req, res, next) => {
-//   const { title, text, date } = req.body;
-//   const image = req.file.path;
-//   if (!title || !text || !date) {
-//     res.render("articles/articleform", {
-//       errorMessage:
-//         "All fields are mandatory. Please provide your title, your text, date.",
-//     });
-//     return;
-//   }
-// });
 
 ////////////////////// article selected ////////////////////////////
 router.get("/articles/:id", (req, res, next) => {

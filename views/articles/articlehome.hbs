@@ -1,16 +1,17 @@
 <link rel="stylesheet" href="./stylesheets/articleshome.css" />
 
-<h1>Articles home</h1>
+<h1>Home articles</h1>
 
-<a href= "/formarticle" class ="create">Create your article</a>
+<a href="/formarticle" class ="create">Create your article</a>
 
 <div class = "article-container">
-{{#each articles}}
-    <div class="article-content">
-        <img src = "{{this.image}}"/>
-        <h3 class ="h3">{{this.title}}</h3>
-        <p>{{this.date}}</p>
-        <a href="/articles/{{this._id}}">See more</a>
-    </div>
-{{/each}}
+  {{#each articles}}
+  <div class="article-content">
+    <img src="{{this.image}}"/>
+    <h3 class="h3">{{this.title}}</h3>
+    <p>{{this.user}}</p>
+    <p>{{this.date}}</p>
+    <a href="/articles/{{this._id}}">See more</a>
+  </div>
+  {{/each}}
 </div>

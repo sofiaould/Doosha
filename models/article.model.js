@@ -3,18 +3,10 @@
 const { Schema, model } = require("mongoose");
 const articleSchema = new Schema(
   {
-    // _id: {
-    //   type: String,
-    //   trim: true,
-    //   required: [true, "Id is required."],
-    //   unique: true,
-    // },
-    // user_id: {
-    //   type: String,
-    //   trim: true,
-    //   required: [true, "UserId is required."],
-    //   unique: true,
-    // },
+    user: {
+      type: Schema.Types.ObjectId, // recuperer id du user qui poste video
+      ref: "User",
+    },
     title: {
       type: String,
       trim: true,

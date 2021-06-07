@@ -3,10 +3,9 @@
 const { Schema, model } = require("mongoose");
 const videoSchema = new Schema(
   {
-   
-    user:{
+    user: {
       type: Schema.Types.ObjectId, // recuperer id du user qui poste video
-      ref: "User"
+      ref: "User",
     },
     title: {
       type: String,

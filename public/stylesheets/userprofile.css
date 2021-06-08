@@ -1,7 +1,6 @@
 * {
     margin: 0;
     @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
-    
   }
   h2{
       display: grid;
@@ -9,9 +8,7 @@
       margin-top: 20vh;
       font-size: 4em;
       font-family: 'PT Serif', serif;
-      
   }
-
   img{
    height: 20vh;
    width: 35vh;
@@ -20,27 +17,27 @@
    align-items: center;
    margin-left: 40%;
    margin-right:50%;
-   
   }
 p{
     display: grid;
     place-items: center;
     font-weight: bold;
-    color: #f19c79;
+    color: #F19C79;
     font-size:18px;
     font-family: 'PT Serif', serif;
 }
-
 .edit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15%;
+}
+.edit a{
     text-decoration: none;
     color:black;
     font-weight: bold;
     font-size:20px;
-    display: flex;
-    margin-top: 35vh;
-
 }
-
-.edit:hover{
+.edit a:hover{
     color:#f19c79;
 }

@@ -7,11 +7,12 @@
 <div class = "article-container">
   {{#each articles}}
   <div class="article-content">
-    <img src="{{this.image}}"/>
+    <img class="photo-article" src="{{this.image}}"/>
     <h3 class="h3">{{this.title}}</h3>
-    <p>{{this.user}}</p>
+    <p>{{this.user.username}}</p>
     <p>{{this.date}}</p>
     <a href="/articles/{{this._id}}">See more</a>
+    <img src="{{this.user.imageURL}}" alt="photo-user">
   </div>
   {{/each}}
 </div>

@@ -8,6 +8,7 @@ const fileUploader = require("../configs/cloudinary.config");
 /////////////////////////// article home ////////////////////////////////
 router.get("/homearticles", (req, res, next) => {
   Article.find()
+    .populate("user")
     .then((articles) => res.render("articles/articlehome", { articles }))
     .catch((err) => next(err));
 });
@@ -48,7 +49,8 @@ router.get("/formarticle", (req, res, next) => {
 ////////////////////// article selected ////////////////////////////
 router.get("/articles/:id", (req, res, next) => {
   Article.findOne({ _id: req.params.id })
-    .then((article) => res.render("articles/articleselected", { article }))
+    .populate("user")
+    .then((article) => res.render("articles/articleselected", { article, user : req.session.user }))
     .catch((err) => next(err));
 });
 

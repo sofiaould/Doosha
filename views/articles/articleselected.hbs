@@ -1,11 +1,7 @@
-<h1>Selected article</h1>
-<h2>{{article.title}}</h2>
-
-<p>Text: {{article.text}}</p>
-<p>User: {{article.user}}</p>
-<p>Date: {{article.date}}</p>
-
+<link rel="stylesheet" href="/stylesheets/articleselected.css" />
+<link rel="stylesheet" href="/stylesheets/mainstyle.css" />
+<h1>{{article.title}}</h1>
 <img src="{{article.image}}" alt="image-article">
-
-<a href="/articles/edit" class ="edit">Edit your article</a> <span> | </span>
-<a href ="/articles/delete">Delete your article</a>
+<p class ="article" id="col">{{article.text}}</p>
+<p>User: {{article.user.username}}</p>
+<p class ="date">{{article.date}}</p>

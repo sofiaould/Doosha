@@ -1,34 +1,56 @@
 /** @format */
-
 * {
   margin: 0;
-  @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap");
+  padding: 0;
+  @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
 }
-nav {
+body{
+  position: relative;
+  min-height: 100vh;
+}
+nav{
   display: flex;
   justify-content: space-between;
   background-color: black;
   height: 8vh;
   font-size: 19px;
-  font-family: "PT Serif", serif;
+  font-family: 'PT Serif', serif;
 }
-nav a {
+nav a{
   color: white;
   text-decoration: none;
   margin-left: 10px;
 }
-nav a:hover {
-  color: #f19c79;
+nav a:hover{
+  color:#f19c79;;
 }
-.navigation li {
+.navigation li{
   display: flex;
   margin-top: 20px;
 }
-.auth li {
+.auth li{
   display: flex;
   margin-top: 20px;
 }
-
-.auth li:hover {
-  color: #f19c79;
+.auth li:hover{
+  color:#f19c79;
+}
+footer{
+  background-color:black;
+  position:absolute; /* pour mettre en position le footer parfaitement */
+  bottom: 0;
+  right:0;
+  left:0;
+  /* width: 100vw; */
+  height: 10vh;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+footer p {
+  color: white;
+  font-size: 19px;
+  font-family: 'PT Serif', serif;
+  font-style: italic;
 }

@@ -19,18 +19,18 @@
         <ul class='auth'>
         <li>
           {{#if user}}
-              <a id="logout-form" href="/logout">Logout</a> <span> | </span>
-              <a id="userProfile" href="/userProfile">My profile</a>
+              <a id="logout-form" href="/logout">Logout</a>
           {{else}}
-            <a href="/signup">Sign up</a> <span> | </span>
-            <a href="/login">Login</a>
+            <a href="/signup">Signup</a> <span> | </span>
+            <a href="/login">Login</a> <span> | </span>
           {{/if}}
         </li>
       </ul>
     </nav>
-
   {{{body}}}
-
   <script src="/javascripts/script.js"></script>
+    <footer>
+    <p>©2008-2021 Doosha, Inc. All Rights Reserved. doosha® is a registered trademark of Doosha, Inc. and is registered with the U.S. Patent and Trademark Office.</p>
+</footer>
 </body>
 </html>

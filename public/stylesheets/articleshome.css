@@ -1,13 +1,13 @@
 /** @format */
 * {
   margin: 0;
-  @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap");
 }
 h1 {
-    display: grid;
-    place-items: center;
-    margin-top: 5vh;
-    font-size:10vh;
+  display: grid;
+  place-items: center;
+  margin-top: 5vh;
+  font-size: 10vh;
 }
 .create {
   text-decoration: none;
@@ -18,25 +18,39 @@ h1 {
   margin-top: 2%;
 }
 .create:hover {
-  color: #F19C79;
+  color: #f19c79;
 }
 .photo-article {
   /* width: 50%; */
-  height:40%;
+  height: 40%;
   width: 150px;
   border-radius: 50% 50%;
   margin-top: 5vh;
   border: 4px solid black;
 }
-.article-content{
-    width:30%;
-    height:350px;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    margin-top: 5%;
-    line-height: 2em;
-    margin-bottom: 30px;
+.identifiant {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-photo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50% 50%;
+  margin-top: 0.5%;
+  border: 2px solid black;
+  justify-content: space-between;
+}
+.article-content {
+  width: 30%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+  line-height: 2em;
+  margin-bottom: 60px;
 }
 .article-container {
   margin: auto;
@@ -45,16 +59,16 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
 }
-.h3{
-    font-family: 'PT Serif', serif;
-    font-size:20px;
-    font-weight: 700px;
-    text-align: center;
+.h3 {
+  font-family: "PT Serif", serif;
+  font-size: 20px;
+  font-weight: 700px;
+  text-align: center;
 }
-a{
-    text-decoration: none;
-    color: inherit;
+a {
+  text-decoration: none;
+  color: inherit;
 }
-a:hover{
-    color:#f19c79;
+a:hover {
+  color: #f19c79;
 }

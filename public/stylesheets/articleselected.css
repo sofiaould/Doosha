@@ -2,6 +2,7 @@
   margin: 0;
   @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap");
 }
+
 h1 {
   display: flex;
   align-items: center;
@@ -25,11 +26,28 @@ img {
   margin-left: auto;
   columns: 2;
   font-size: 18px;
+
+  
 }
 .date {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   font-style: italic;
-  margin-top:5%;
+  margin-left: 50%;
+ 
+}
+.identifiant {
+  display: inline-block;
+  flex-direction: row; 
+  justify-content: space-between;
+  padding-bottom: 150px;
+  
+}
+.user-photo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50% 50%;
+  margin-top: 0.5%;
+  border: 2px solid black;
+  /* justify-content: space-between; */
 }

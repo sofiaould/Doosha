@@ -1,7 +1,11 @@
 <link rel="stylesheet" href="/stylesheets/articleselected.css" />
 <link rel="stylesheet" href="/stylesheets/mainstyle.css" />
 <h1>{{article.title}}</h1>
+<p class="date">{{article.date}}</p>
 <img src="{{article.image}}" alt="image-article">
 <p class ="article" id="col">{{article.text}}</p>
-<p>User: {{article.user.username}}</p>
-<p class ="date">{{article.date}}</p>
+<div class="identifiant">
+     <img src="{{this.user.imageURL}}" class ="user-photo" alt="photo-user">
+     <p>{{this.user.username}}</p>
+ </div>
+ 

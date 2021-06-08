@@ -50,7 +50,8 @@ router.get("/formarticle", (req, res, next) => {
 router.get("/articles/:id", (req, res, next) => {
   Article.findOne({ _id: req.params.id })
     .populate("user")
-    .then((article) => res.render("articles/articleselected", { article, user : req.session.user }))
+    // .then((article) => res.render("articles/articleselected", { article, user : req.session.user }))
+    .then((article) => res.render("articles/articleselected", { article,}))
     .catch((err) => next(err));
 });
 

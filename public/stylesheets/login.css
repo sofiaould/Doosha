@@ -1,77 +1,3 @@
-/* ///////////////////////////////////////////////////////
-////////////////////version 1/////////////////////////
-///////////////////////////////////////////////////// */
-
-/* *{
-    margin: 0;
-    @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
-    font-family: 'PT Serif', serif;
-}
-#form{
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    margin-top: 5vh;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    color: white;
-    width: 85vh;
-    height: 80vh;
-}
-label{
-    margin: auto;
-}
-#input-username{
-    width: 40vh;
-    margin-left: 30%;
-}
-#input-firstname{
-    width: 40vh;
-    margin-left: 30%;
-}
-#input-name{
-    width: 40vh;
-    margin-left: 30%;
-}
-#input-firstname{
-    width: 40vh;
-    margin-left: 30%;
-}
-#input-email{
-    width: 40vh;
-    margin-left: 30%;
-}
-#input-password{
-    width: 40vh;
-    margin-left: 30%;
-}
-#input-image{
-    width: 40vh;
-    margin-left: 30%;
-}
-button{
-    border-radius: 20px;
-    width: 10em;
-    height: 5vh;
-    margin-top: 20%;
-    margin: auto;
-    background-color: white;
-    color: black;
-    border:white;
-    font-size: 15px;
-    font-weight: bold;
-} */
-
-
-
-/* ///////////////////////////////////////////////////////
-////////////////////version 2/////////////////////////
-///////////////////////////////////////////////////// */
-
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap");
 
 * {
@@ -94,7 +20,7 @@ body::before {
   width: 100%;
   height: 100%;
   z-index: -100;
-  background: url(../images/image-signup.jpg);
+  background: url(../images/image-login.jpg);
   filter: blur(5px) opacity(25%);
 }
 .container {
@@ -106,7 +32,7 @@ body::before {
 .form-control {
   position: relative;
   margin: 20px 0;
-  width: 450px;
+  width: 300px;
 }
 .form-control input {
   border: 0;

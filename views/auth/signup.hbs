@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="./stylesheets/signup.css" />
 
-<div id="form">
+{{!-- ///////////////////////////////////////////////////////
+////////////////////version 1/////////////////////////
+////////////////////////////////////////////////////// --}}
+
+{{!-- <div id="form">
   <h2>Signup</h2>
   <form action="/signup" method="POST" enctype="multipart/form-data">
     
@@ -28,4 +32,52 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
-</div>
+</div> --}}
+
+
+
+{{!-- ///////////////////////////////////////////////////////
+////////////////////version 2/////////////////////////
+///////////////////////////////////////////////////// --}}
+
+  <div class="container">
+    <h2>Sign up</h2>
+      <form action="/signup" method="POST" enctype="multipart/form-data">
+    
+    <div class="form-control">
+      <input type="text" id="Username" name="username" required/>
+      <label for="Username">Username</label>
+    </div>
+    
+    <div class="form-control">
+      <input type="text" id="Firstname" name="firstname" required/>
+      <label for="Firstname">Firstname</label>
+    </div>
+
+    <div class="form-control">
+      <input type="text" id="Name" name="name" required/>
+      <label for="Name">Name</label>
+    </div>
+
+    <div class="form-control">
+      <input type="email" id="Email" name="email" required/>
+      <label for="Email">Email</label>
+    </div>
+
+    <div class="form-control">
+      <input type="password" id="Password" name="password" required/>
+      <label for="Password">Password</label>
+    </div>
+
+    <div class="form-control">
+      <input type="file" id="input-image" name="image" required/>
+      <label for="input-image">Photo</label>
+    </div>
+
+    <button type="submit">Create account</button>
+    
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+    </form>
+  </div>

@@ -1,4 +1,10 @@
-<div id="form">
+<link rel="stylesheet" href="./stylesheets/login.css" />
+
+{{!-- ///////////////////////////////////////////////////////
+////////////////////version 1/////////////////////////
+///////////////////////////////////////////////////// --}}
+
+{{!-- <div id="form">
     <h2>Login</h2>
     <form action="/login" method="POST">
         
@@ -14,4 +20,32 @@
             <p class="error">{{errorMessage}}</p>
         {{/if}}
     </form>
-</div>
+</div> --}}
+
+
+
+{{!-- ///////////////////////////////////////////////////////
+////////////////////version 2/////////////////////////
+///////////////////////////////////////////////////// --}}
+
+  <div class="container">
+    <h2>Login</h2>
+    <form action="/login" method="POST">
+    
+    <div class="form-control">
+      <input type="email" id="Email" name="email" required/>
+      <label for="Email">Email</label>
+    </div>
+    
+    <div class="form-control">
+      <input type="password" id="Password" name="password" required/>
+      <label for="Password">Password</label>
+    </div>
+    
+    <button>Submit</button>
+    
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
+    </form>
+  </div>

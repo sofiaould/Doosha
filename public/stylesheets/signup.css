@@ -4,13 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'PT Serif', serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
+  font-family: "PT Serif", serif;
 }
 body::before {
   content: "";
@@ -62,7 +56,6 @@ body::before {
   font-size: 14px;
   transition: all 0.5s ease;
 }
-
 button {
   margin: 1rem auto;
   padding: 1rem 2rem;
@@ -81,4 +74,17 @@ button:hover {
 }
 button:active {
   transform: scale(0.95);
+}
+.signup-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0;
+}
+.your-photo {
+  position: relative;
+  margin-left: 60px;
 }

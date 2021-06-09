@@ -1,58 +1,91 @@
-/** @format */
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap");
 
 * {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'PT Serif', serif;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  background: url(../images/image-articleform.jpg);
+  filter: blur(5px) opacity(25%);
+}
+.container {
+  border: 1px solid #333;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 0 3px #333;
+}
+.form-control {
+  position: relative;
+  margin: 20px 0;
+  width: 450px;
+}
+.form-control input {
+  border: 0;
+  border-bottom: 2px solid #333;
+  font-size: 18px;
+  font-family: inherit;
+  padding: 15px 0;
+  outline: none;
+  transition: all 0.2s ease-in;
+  background: transparent;
+}
+.form-control input:focus,
+.form-control input:valid {
+  border-bottom-color: darkcyan;
+}
+.form-control label {
+  font-size: 18px;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  z-index: -1;
+}
+.form-control input:focus + label,
+.form-control input:valid + label {
+  color: darkcyan;
+  transform: translateY(-30px);
+  font-size: 14px;
+  transition: all 0.5s ease;
+}
+
+button {
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  border: 1px solid darkcyan;
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+  transition: 0.4s ease;
+  background: transparent;
+}
+button:hover {
+  box-shadow: inset 0 0 0 30px darkcyan, 1px 1px 3px #333;
+  transform: translateX(4px);
+  color: #eee;
+}
+button:active {
+  transform: scale(0.95);
+}
+.articleform-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   margin: 0;
-  @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap");
-  font-family: "PT Serif", serif;
 }
-#form {
-  display: flex;
-  flex-direction: column;
-  place-items: center;
-  margin-top: 3vh;
+.your-picture {
+  position: relative;
+  margin-left: 70px;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  background-color: black;
-  color: white;
-  width: 85vh;
-  height: 80vh;
-}
-
-label {
-  margin: auto;
-}
-
-#input-image {
-  width: 40vh;
-  margin-left: 30%;
-}
-
-#input-title {
-  width: 40vh;
-  margin-left: 30%;
-}
-#input-text {
-  width: 45vh;
-  height: 40vh;
-  margin-left: 30%;
-  white-space: pre-line;
-}
-#input-date {
-  width: 40vh;
-  margin-left: 30%;
-}
-.submit {
-  border-radius: 20px;
-  width: 10em;
-  height: 5vh;
-  margin-top: 20%;
-  margin: auto;
-  background-color: white;
-  color: black;
-  border: white;
-  font-size: 15px;
-  font-weight: bold;
-}
-

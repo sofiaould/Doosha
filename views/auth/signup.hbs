@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="./stylesheets/signup.css" />
 
+<div class="signup-page">
   <div class="container">
     <h2>Sign up</h2>
       <form action="/signup" method="POST" enctype="multipart/form-data">
@@ -30,7 +31,7 @@
     </div>
 
     <div class="form-control">
-      <input type="file" id="input-image" name="image" required/>
+      <input type="file" id="input-image" name="image" class="your-photo" required/>
       <label for="input-image">Photo</label>
     </div>
 
@@ -40,4 +41,5 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
     </form>
+  </div>
   </div>

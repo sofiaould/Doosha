@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'PT Serif', serif;
+  font-family: "PT Serif", serif;
 }
 body::before {
   content: "";
@@ -14,7 +14,7 @@ body::before {
   width: 100%;
   height: 100%;
   z-index: -100;
-  background: url(../images/image-login.jpg);
+  background: url(../images/image-videoform.jpg);
   filter: blur(5px) opacity(25%);
 }
 .container {
@@ -26,7 +26,7 @@ body::before {
 .form-control {
   position: relative;
   margin: 20px 0;
-  width: 300px;
+  width: 450px;
 }
 .form-control input {
   border: 0;
@@ -76,7 +76,7 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
-.login-page {
+.videoform-page {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -84,4 +84,8 @@ button:active {
   justify-content: center;
   flex-direction: column;
   margin: 0;
+}
+.your-picture {
+  position: relative;
+  margin-left: 70px;
 }

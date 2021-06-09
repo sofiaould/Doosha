@@ -1,11 +1,20 @@
-<link rel="stylesheet" href="/stylesheets/articleselected.css" />
-<link rel="stylesheet" href="/stylesheets/mainstyle.css" />
+<link rel="stylesheet" href="/stylesheets/articleselected.css"/>
+<link rel="stylesheet" href="/stylesheets/mainstyle.css"/>
+
 <h1>{{article.title}}</h1>
+
 <p class="date">{{article.date}}</p>
+
 <img src="{{article.image}}" alt="image-article">
+
 <p class ="article" id="col">{{article.text}}</p>
+
 <div class="identifiant">
-     <img src="{{this.user.imageURL}}" class ="user-photo" alt="photo-user">
-     <p>{{this.user.username}}</p>
- </div>
+  <img src="{{this.user.imageURL}}" class ="user-photo" alt="photo-user">
+  <p>{{this.user.username}}</p>
+</div>
+
+<a href="/articles/edit" class ="edit">Edit your article</a>
+<span> | </span>
+<a href ="/articles/delete">Delete your article</a>
  

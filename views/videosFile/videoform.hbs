@@ -1,26 +1,40 @@
-<div id="form">
-  <h2>Post my Video</h2>
-  <form action="/homevideos" method="POST" enctype="multipart/form-data">
-   
-   <label for="input-image">Upload picture</label>
-   <input type="file" name="image" id="input-image" placeholder="Your picture"/>
-   
-   <label for="input-video">Video</label>
-   <input type="text" name="video" id="input-video" placeholder="Copy video URL"/>
+<link rel="stylesheet" href="./stylesheets/videoform.css" />
 
-    <label for="input-title">Title</label>
-    <input type="text" id="input-title" name="title" placeholder="Your title"/>
+<div class="videoform-page">
+  <div class="container">
+    <h2>Post my video</h2>
+      <form action="/homevideos" method="POST" enctype="multipart/form-data">
+    
+    <div class="form-control">
+      <input type="text" id="input-title" name="title" required/>
+      <label for="input-title">Title</label>
+    </div>
 
-    <label for="input-text">Text</label>
-    <input type="text" id="input-text" name="text" placeholder="Your text"/>
+    <div class="form-control">
+      <input type="text" id="input-text" name="text" required/>
+      <label for="input-text">Text</label>
+    </div>
 
-    <label for="input-date">Date</label>
-    <input type="texte" id="input-date" name="date" placeholder="dd/mm/yy"/>
-  
+    <div class="form-control">
+      <input type="texte" id="input-date" name="date" required/>
+      <label for="input-date">Date</label>
+    </div>
+
+    <div class="form-control">
+      <input type="file" id="input-image" name="image" class="your-picture" required/>
+      <label for="input-image">Picture</label>
+    </div>
+
+    <div class="form-control">
+      <input type="texte" id="input-video" name="video" required/>
+      <label for="input-video">Copy video URL</label>
+    </div>
+
     <button type="submit">Share with the community</button>
-
+    
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
-  </form>
-</div>
+    </form>
+  </div>
+  </div>

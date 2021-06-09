@@ -20,10 +20,12 @@
         <li>
           {{#if user}}
               <a id="logout-form" href="/logout">Logout</a>
-              <a id="userprofile" href="/userProfile">My Profil</a>
+              <span> | </span>
+              <a id="userprofile" href="/userProfile">My Profile</a>
           {{else}}
-            <a href="/signup">Signup</a> <span> | </span>
-            <a href="/login">Login</a> <span> | </span>
+            <a href="/signup">Signup</a>
+            <span> | </span>
+            <a href="/login">Login</a>
           {{/if}}
         </li>
       </ul>

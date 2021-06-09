@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+}
+.confirmation{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20%;
+}
+.confirmation p{
+    font-size: 3em;
+}
+.delete{
+    margin-top: 40%;
+    height: 6em;
+    width: 12em;
+    border: solid 4px black;
+    border-radius: 50px 50px;
+    background-color: white;
+    outline: none;
+    transition: 0.4s ease;
+    cursor: pointer;
+    
+
+}
+
+.delete:hover {
+    /* box-shadow: inset 0 0 0 30px #f19c79, 1px 1px 3px #333;
+    transform: translateX(4px);
+    color: #eee; */
+    background-color: #f19c79;
+    color: white;
+    border: none;
+    
+}

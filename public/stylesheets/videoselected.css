@@ -15,8 +15,8 @@ h1 {
   outline: 3px;
   margin-top: 5%;
   line-height: 1.5em;
-  margin-left: auto;
-  columns: 2;
+  margin-right: 40%;
+  /* columns: 2; */
   font-size: 18px;
 }
 .video-window {
@@ -43,9 +43,10 @@ h1 {
   display: inline-block;
   flex-direction: row;
   justify-content: space-between;
-  padding-bottom: 150px;
+  padding-bottom: 120px;
   margin-top:5%;
   font-family: "PT Serif", serif;
+  margin-left:20px;
 }
 .user-photo {
   height: 50px;

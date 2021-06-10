@@ -11,17 +11,16 @@
 <span> | </span>
 <a href ="/videosfile/delete">Delete your video</a> --}}
 
-<link rel="stylesheet" href="/stylesheets/articleselected.css"/>
+<link rel="stylesheet" href="/stylesheets/videoselected.css"/>
 <link rel="stylesheet" href="/stylesheets/mainstyle.css"/>
 
 <h1>{{video.title}}</h1>
 
 <p class="date">{{video.date}}</p>
-
-<p class ="video-text" id="col">{{video.text}}</p>
-
+<div class="content-detail">
 <iframe class="video-window" width="560" height="315" src="https://youtube.com/embed/{{video.video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<p class ="video-text" id="col">{{video.text}}</p>
+</div>
 <div class="identifiant">
   <img src="{{this.user.imageURL}}" class ="user-photo" alt="photo-user">
   <p>{{this.user.username}}</p>
@@ -29,4 +28,4 @@
 
 <a href="/videosfile/edit" class ="edit">Edit your video</a>
 <span> | </span>
-<a href ="/videosfile/delete">Delete your video</a>
+<a href ="/videosfile/delete"class ="edit">Delete your video</a>

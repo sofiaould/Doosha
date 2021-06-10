@@ -33,11 +33,19 @@ h1 {
   font-style: italic;
   margin-left: 50%;
 }
+.content-detail{
+  display: block;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 30%;
+}
 .identifiant {
   display: inline-block;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 150px;
+  margin-top:5%;
+  font-family: "PT Serif", serif;
 }
 .user-photo {
   height: 50px;
@@ -46,4 +54,14 @@ h1 {
   margin-top: 0.5%;
   border: 2px solid black;
   /* justify-content: space-between; */
+}
+
+.edit{
+  text-decoration: none;
+  color: black;
+  font-family: "PT Serif", serif;
+}
+
+.edit:hover{
+  color:#f19c79;
 }

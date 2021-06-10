@@ -1,0 +1,40 @@
+/* /////////////////////////////////////////////////////////////
+/////////////////////////////version 1//////////////////////
+/////////////////////////////////////////////////////////// */
+
+* {
+  margin: 0;
+}
+
+img {
+  width: 100vw;
+  /* height: 100vh; */
+  position: relative;
+}
+
+.welcome {
+  position: absolute;
+  font-size: 9em;
+  z-index: 1; /* permet d'etablir l'ordre de superposition */
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 62%;
+  color: #f19c79;
+  width: 90%;
+}
+
+.mantra {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 80%;
+  /* color: whitesmoke; */
+  color: #f19c79;
+  width: 60%;
+  font-size: 30px;
+}

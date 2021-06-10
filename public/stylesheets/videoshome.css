@@ -7,7 +7,7 @@ h1 {
   display: grid;
   place-items: center;
   margin-top: 5vh;
-  font-size: 9vh;
+  font-size: 10vh;
 }
 .upload {
   text-decoration: none;
@@ -19,30 +19,6 @@ h1 {
 }
 .upload:hover {
   color: #f19c79;
-}
-.video-content {
-  width: 30%;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  line-height: 2em;
-}
-img {
-  /* width: 50%; */
-  height: 40%;
-  width: 150px;
-  border-radius: 50% 50%;
-  margin-top: 5vh;
-  border: 4px solid black;
-}
-.video-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
 }
 .photo-video {
   /* width: 50%; */
@@ -65,4 +41,34 @@ img {
   margin-top: 0.5%;
   border: 2px solid black;
   justify-content: space-between;
+}
+.video-content {
+  width: 30%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  line-height: 2em;
+}
+.video-container {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.h3 {
+  font-family: "PT Serif", serif;
+  font-size: 20px;
+  font-weight: 700px;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: #f19c79;
 }

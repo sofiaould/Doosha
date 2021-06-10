@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: 'PT Serif', serif;
+  font-family: "PT Serif", serif;
 }
 body::before {
   content: "";
@@ -14,7 +14,7 @@ body::before {
   width: 100%;
   height: 100%;
   z-index: -100;
-  background: url(../images/image-login.jpg);
+  background: url(../images/image-edit-user.jpg);
   filter: blur(5px) opacity(25%);
 }
 .container {
@@ -26,7 +26,7 @@ body::before {
 .form-control {
   position: relative;
   margin: 20px 0;
-  width: 300px;
+  width: 450px;
 }
 .form-control input {
   border: 0;
@@ -56,7 +56,6 @@ body::before {
   font-size: 14px;
   transition: all 0.5s ease;
 }
-
 button {
   margin: 1rem auto;
   padding: 1rem 2rem;
@@ -76,7 +75,7 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
-.login-page {
+.edit-page {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -84,4 +83,8 @@ button:active {
   justify-content: center;
   flex-direction: column;
   margin: 0;
+}
+.your-photo {
+  position: relative;
+  margin-left: 60px;
 }

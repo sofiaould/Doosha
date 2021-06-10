@@ -1,36 +1,44 @@
-*{
-    margin: 0;
+* {
+  margin: 0;
 }
-.confirmation{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 20%;
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  background: url(../images/image-delete-user.jpg);
+  filter: blur(5px) opacity(25%);
 }
-.confirmation p{
-    font-size: 3em;
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20%;
 }
-.delete{
-    margin-top: 40%;
-    height: 6em;
-    width: 12em;
-    border: solid 4px black;
-    border-radius: 50px 50px;
-    background-color: white;
-    outline: none;
-    transition: 0.4s ease;
-    cursor: pointer;
-    
-
+.confirmation p {
+  font-size: 3em;
+}
+.delete {
+  margin-top: 40%;
+  height: 6em;
+  width: 12em;
+  border: solid 4px black;
+  border-radius: 50px 50px;
+  background-color: white;
+  outline: none;
+  transition: 0.4s ease;
+  cursor: pointer;
 }
 
 .delete:hover {
-    /* box-shadow: inset 0 0 0 30px #f19c79, 1px 1px 3px #333;
+  /* box-shadow: inset 0 0 0 30px #f19c79, 1px 1px 3px #333;
     transform: translateX(4px);
     color: #eee; */
-    background-color: #f19c79;
-    color: white;
-    border: none;
-    
+  background-color: #f19c79;
+  color: white;
+  border: none;
 }

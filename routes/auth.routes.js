@@ -70,7 +70,7 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
       });
     })
     .then((user) => {
-      console.log("Newly created user is: ", user);
+      // console.log("Newly created user is: ", user);
       req.session.currentUser = user;
       res.redirect("/userProfile");
     })
@@ -164,7 +164,7 @@ router.get("/users/edit", (req, res, next) => {
 });
 
 router.post("/users/edit", (req, res, next) => {
-  console.log("coucou", req.session.currentUser._id);
+  // console.log("coucou", req.session.currentUser._id);
   const { name, firstname, username, email, password } = req.body;
   bcryptjs
     .genSalt(saltRounds)

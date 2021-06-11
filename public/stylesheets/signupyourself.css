@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  @import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap");
+}
+/* body {
+  font-family: 'PT Serif', serif;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  background: url(https://unsplash.com/photos/KjFfYjMymI4);
+  filter: blur(5px) opacity(25%);
+} */
+.askauth{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20vw;
+}
+.askauth a{
+  text-decoration: none;
+  color: black;
+  font-family: "PT Serif", serif;
+  font-size: 2vw;
+}
+.askauth a:hover{
+  color: #F19C79;
+}

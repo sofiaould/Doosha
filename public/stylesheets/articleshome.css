@@ -41,6 +41,10 @@ h1 {
   margin-top: 0.5%;
   border: 2px solid black;
   justify-content: space-between;
+ 
+}
+.identifiant p{
+  padding: 10px;
 }
 .article-content {
   width: 30%;

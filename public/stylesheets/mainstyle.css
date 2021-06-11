@@ -8,11 +8,23 @@ body{
   position: relative;
   min-height: 100vh;
 }
+nav img{
+position:absolute;
+top: 0%;
+margin-left: 45%;
+/* margin-right: 50%; */
+width:10vw;
+height:4vw;
+display: flex;
+justify-content:space-between ;
+align-items: center;
+}
 nav{
+position: relative;
   display: flex;
   justify-content: space-between;
   background-color: black;
-  height: 8vh;
+  height: 9vh;
   font-size: 19px;
   font-family: 'PT Serif', serif;
 }

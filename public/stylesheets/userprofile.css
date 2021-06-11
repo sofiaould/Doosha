@@ -22,7 +22,7 @@
       font-size: 4em;
       font-family: 'PT Serif', serif;
   }
-  img{
+  .photouser{
    height: 20vh;
    width: 35vh;
    display: flex;

@@ -11,10 +11,10 @@ body{
 nav img{
 position:absolute;
 top: 0%;
-margin-left: 45%;
+margin-left: 40%;
 /* margin-right: 50%; */
-width:10vw;
-height:4vw;
+width:20vw;
+height:4.6vw;
 display: flex;
 justify-content:space-between ;
 align-items: center;

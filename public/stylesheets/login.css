@@ -83,5 +83,5 @@ button:active {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0;
+  margin: 1% 0 auto 0;
 }

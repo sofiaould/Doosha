@@ -47,6 +47,12 @@ nav a:hover{
 .auth li:hover{
   color:#f19c79;
 }
+.auth {
+  margin-right: 25px;
+}
+#links-nav-left {
+  margin-left: 15px;
+}
 footer{
   background-color:black;
   position:absolute; /* pour mettre en position le footer parfaitement */

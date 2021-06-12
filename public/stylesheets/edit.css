@@ -87,7 +87,7 @@ button:active {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0;
+  margin: 10% 0 auto 0;
   
 }
 .your-photo {

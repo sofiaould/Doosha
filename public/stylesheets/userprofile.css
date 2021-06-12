@@ -19,6 +19,7 @@
       display: grid;
       place-items: center;
       margin-top: 20vh;
+      margin-bottom: 20px;
       font-size: 4em;
       font-family: 'PT Serif', serif;
   }
@@ -40,13 +41,16 @@ p{
     color: #F19C79;
     font-size:18px;
     font-family: 'PT Serif', serif;
+    margin-top: 20px;;
 }
 .edit{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10%;
-    margin-bottom: 15%;
+    margin-top: 6%;
+    margin-bottom: 5%;
+    margin-right: 30px;
+    margin-left: 30px;
 }
 .edit a{
     text-decoration: none;

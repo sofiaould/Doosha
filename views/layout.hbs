@@ -12,20 +12,22 @@
       <ul class= "navigation">
         <li>
           <img src="/images/DOOSHA1.jpg">
-          <p><a href="/">Home</a></p>
-          <p><a href="/homearticles">Articles</a></p>
-          <p><a href="/homevideos">Videos</a></p>
+          <div id="links-nav-left">
+          <a href="/">Home</a>
+          <a href="/homearticles">Articles</a>
+          <a href="/homevideos">Videos</a>
+          </div>
         </li>
         </ul>
         <ul class='auth'>
         <li>
           {{#if user}}
               <a id="logout-form" href="/logout">Logout</a>
-              <span> | </span>
+              {{!-- <span> | </span> --}}
               <a id="userprofile" href="/userProfile">My Profile</a>
           {{else}}
             <a href="/signup">Signup</a>
-            <span> | </span>
+            {{!-- <span> | </span> --}}
             <a href="/login">Login</a>
           {{/if}}
         </li>

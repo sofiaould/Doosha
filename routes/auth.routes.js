@@ -21,9 +21,15 @@ router.get("/userProfile", routeGuard, (req, res, next) => {
     .catch(next);
 });
 
+// router.get("/users/edit", (req, res, next) => {
+//   User.findById(req.session.currentUser._id)
+//     .then((user) => res.render("users/edit", { user: req.session.currentUser }))
+//     .catch((err) => next(err));
+// });
+
 router.get("/users/edit", (req, res, next) => {
   User.findById(req.session.currentUser._id)
-    .then((user) => res.render("users/edit", { user: req.session.currentUser }))
+    .then((user) => res.render("users/edit", { user: user }))
     .catch((err) => next(err));
 });
 

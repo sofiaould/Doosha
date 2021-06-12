@@ -50,7 +50,7 @@
 <div class="edit-page">
   <div class="container">
     <h2>Edit {{username}}</h2>
-      <form action="/users/edit" method="POST">
+      <form action="/users/edit" method="POST" enctype="multipart/form-data">
     
     <div class="form-control">
       <input type="text" name="username" value="{{user.username}}">
@@ -76,14 +76,13 @@
       <label for="Email">Email</label>
     </div>
 
-    <div class="form-control">
+    {{!-- <div class="form-control">
       <input type="password" name="password" value="{{user.password}}">
-      {{!-- <input type="password" id="Password" name="password" required/> --}}
       <label for="Password">Password</label>
-    </div>
+    </div> --}}
 
     <div class="form-control">
-      <input type="file" name="imageURL" value="{{user.imageURL}}">
+      <input type="file" name="imageURL">
       {{!-- <input type="file" id="input-image" name="image" class="your-photo" required/> --}}
       <label for="input-image">Image</label>
     </div>

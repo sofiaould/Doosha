@@ -21,6 +21,12 @@ router.get("/userProfile", routeGuard, (req, res, next) => {
     .catch(next);
 });
 
+router.get("/users/edit", (req, res, next) => {
+  User.findById(req.session.currentUser._id)
+    .then((user) => res.render("users/edit", { user: req.session.currentUser }))
+    .catch((err) => next(err));
+});
+
 ////////////////////////////////////////////////////////////////////////
 ///////////////////////////// SIGNUP //////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
@@ -144,6 +150,22 @@ router.post("/logout", (req, res) => {
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////// EDIT / DELETE/ UPDATE USER //////////////
 ////////////////////////////////////////////////////////////////
+
+
+
+
+router.post("/users/edit", fileUploader.single("imageURL"), function (req, res, next) {
+  const { name, firstname, username, email, password } = req.body
+  const data = { name, firstname, username, email, password };
+  if (req.file) {
+    data.imageURL = req.file.path
+  }
+  User.findByIdAndUpdate(req.session.currentUser._id, data, { new: true }).then((user) => {
+    res.redirect("/userProfile");
+  })
+  .catch((err) => next(err))
+});
+
 router.get("/users/delete", (req, res, next) => {
   res.render("users/delete");
 });
@@ -157,39 +179,29 @@ router.post("/users/delete", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.get("/users/edit", (req, res, next) => {
-  User.findOne({ user: req.session.currentUser })
-    .then((user) => res.render("users/edit", { user: req.session.currentUser }))
-    .catch((err) => next(err));
-});
-
-router.post("/users/edit", (req, res, next) => {
-  // console.log("coucou", req.session.currentUser._id);
-  const { name, firstname, username, email, password } = req.body;
-  bcryptjs
-    .genSalt(saltRounds)
-    .then((salt) => bcryptjs.hash(password, salt))
-    .then((hashedPassword) => {
-      return User.findByIdAndUpdate(
-        req.session.currentUser._id,
-        {
-          name,
-          firstname,
-          username,
-          email,
-          passwordHash: hashedPassword, // ce qu'on fait passer en params de son then
-          imageURL: req.file.path,
-        },
-        { new: true }
-      );
-    })
-    .then((user) => {
-      console.log("New password: ", user);
-      res.redirect("/userProfile");
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-
+// router.post("/users/edit", fileUploader.single("imageURL"), (req, res, next) => {
+//   const { name, firstname, username, email, password } = req.body;
+//   bcryptjs
+//     .genSalt(saltRounds)
+//     .then((salt) => bcryptjs.hash(password, salt))
+//     .then((hashedPassword) => {
+//       const data = {
+//          name, firstname, username, email, password 
+//       }
+//       if(req.file) {
+//         data.imageURL = req.file.path;
+//       }
+//       return User.findByIdAndUpdate(
+//         req.session.currentUser._id,
+//         { new: true }
+//       );
+//     })
+//     .then((user) => {
+//       console.log("New password: ", user);
+//       res.redirect("/userProfile");
+//     })
+//     .catch((error) => {
+//       next(error);
+//     });
+// });
 module.exports = router;

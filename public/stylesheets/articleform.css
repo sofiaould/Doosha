@@ -22,6 +22,9 @@ body::before {
   padding: 2rem;
   border-radius: 6px;
   box-shadow: 0 0 3px #333;
+  margin-bottom: 5%;
+  
+  
 }
 .form-control {
   position: relative;
@@ -77,13 +80,13 @@ button:active {
   transform: scale(0.95);
 }
 .articleform-page {
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 5% 0 auto 0;
+
 }
 .your-picture {
   position: relative;

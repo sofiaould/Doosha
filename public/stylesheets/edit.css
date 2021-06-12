@@ -20,8 +20,10 @@ body::before {
 .container {
   border: 1px solid #333;
   padding: 2rem;
+  padding-bottom: 10px;
   border-radius: 6px;
   box-shadow: 0 0 3px #333;
+  margin-bottom: 5%;
  
 }
 form{

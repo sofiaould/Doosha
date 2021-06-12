@@ -42,24 +42,9 @@ h1 {
   font-style: italic;
   margin-left: 50%;
   margin-right: 50%;
+  margin-top: 2%;
 }
-/* .identifiant {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  padding-bottom: 80px;
-}
-.identifiant p {
-text-align: center;
-}
-.user-photo {
-  height: 50px;
-  width: 50px;
-  border-radius: 50% 50%;
-  margin-top: 0.5%;
-  border: 2px solid black;
-} */
+
 .identifiant {
   display: flex;
   flex-direction: row;

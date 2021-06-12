@@ -15,44 +15,38 @@ h1 {
   outline: 3px;
   margin-top: 5%;
   line-height: 1.5em;
-  margin-right: 40%;
-  /* columns: 2; */
   font-size: 18px;
+  width: 70%;
+  text-align: center;
+
 }
 .video-window {
-  outline: 3px;
-  margin-top: 5%;
-  line-height: 1.5em;
-  margin-left: auto;
-  columns: 2;
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-items: center; 
 }
 .date {
   display: flex;
   align-items: center;
+  justify-items: center;
   font-style: italic;
   margin-left: 50%;
+  margin-right: 50%;
+  margin-top:2%;
 }
 .content-detail{
-  display: block;
+  display: inline-block;
   justify-content: space-around;
   align-items: center;
-  margin-left: 30%;
-}
-/* .identifiant {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 120px;
+  margin-left: 25%;
   margin-top:5%;
-  font-family: "PT Serif", serif;
-  margin-left:20px;
-} */
+}
 .identifiant {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 10vw;
+  align-items: center;
+  padding-bottom: 6%;
+  margin-left: 2.5%;
 }
 .user-photo {
   height: 50px;
@@ -60,10 +54,15 @@ h1 {
   border-radius: 50% 50%;
   margin-top: 0.5%;
   border: 2px solid black;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+}
+.identifiant p{
+  padding: 10px;
 }
 
-.edit{
+
+
+/* .edit{
   text-decoration: none;
   color: black;
   font-family: "PT Serif", serif;
@@ -71,4 +70,4 @@ h1 {
 
 .edit:hover{
   color:#f19c79;
-}
+} */

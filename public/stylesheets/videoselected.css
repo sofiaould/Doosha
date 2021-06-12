@@ -39,14 +39,20 @@ h1 {
   align-items: center;
   margin-left: 30%;
 }
-.identifiant {
-  display: inline-block;
+/* .identifiant {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 120px;
   margin-top:5%;
   font-family: "PT Serif", serif;
   margin-left:20px;
+} */
+.identifiant {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 10vw;
 }
 .user-photo {
   height: 50px;

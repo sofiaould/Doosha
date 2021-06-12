@@ -34,6 +34,9 @@ h1 {
   justify-content: space-between;
   align-items: center;
 }
+.identifiant p {
+  padding: 10px;
+}
 .user-photo {
   height: 50px;
   width: 50px;

@@ -25,6 +25,7 @@ position: relative;
   justify-content: space-between;
   background-color: black;
   height: 9vh;
+  width: 100%;
   font-size: 19px;
   font-family: 'PT Serif', serif;
 }
@@ -60,7 +61,8 @@ footer{
   right:0;
   left:0;
   /* width: 100vw; */
-  height: 10vh;
+  height: 70px;
+  width:100%;
   display:flex;
   justify-content: space-around;
   align-items: center;
@@ -68,7 +70,7 @@ footer{
 }
 footer p {
   color: white;
-  font-size: 19px;
+  /* font-size: 19px; */
   font-family: 'PT Serif', serif;
   font-style: italic;
 }

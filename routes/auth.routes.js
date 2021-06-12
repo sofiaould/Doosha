@@ -178,7 +178,7 @@ router.post("/users/edit", (req, res, next) => {
           username,
           email,
           passwordHash: hashedPassword, // ce qu'on fait passer en params de son then
-          // imageURL: user.imageURL,
+          imageURL: req.file.path,
         },
         { new: true }
       );

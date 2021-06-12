@@ -5,13 +5,13 @@
 
 <p class="date">{{article.date}}</p>
 
-<img src="{{article.image}}" alt="image-article">
+<img src="{{article.image}}" alt="image-article" class="article-image">
 
 <p class ="article" id="col">{{article.text}}</p>
 
 <div class="identifiant">
-  <img src="{{this.user.imageURL}}" class ="user-photo" alt="photo-user">
-  <p>{{this.user.username}}</p>
+  <img src="{{article.user.imageURL}}" class ="user-photo" alt="photo-user">
+  <p>{{article.user.username}}</p>
 </div>
 
 <a href="/articles/edit" class ="edit">Edit your article</a>

@@ -81,14 +81,13 @@ button:active {
   transform: scale(0.95);
 }
 .edit-page {
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 10% 0 auto 0;
-  
+  /* margin: 5% 0 auto 0; */
 }
 .your-photo {
   position: relative;

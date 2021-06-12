@@ -6,11 +6,11 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: "PT Serif", serif;
   background-image: url("/images/homepage.jpeg");
   background-repeat: no-repeat;
-  background-size: 100vw 47vw;
+  background-size: 100vw 100vh;
 }
 /* video {
     width: 100%;
@@ -18,14 +18,17 @@ body {
     object-fit: cover;
   } */
 .index {
-  display: grid;
-  place-items: center;
-  line-height: 4em;
-}
-.welcome {
+  /* display: grid; */
+  /* place-items: center; */
+  /* line-height: 4em; */
+  text-align: center;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column;
+}
+.welcome {
   margin-top: 15%;
   font-size: 7em;
   text-align: center;
@@ -35,8 +38,27 @@ body {
 }
 .mantra {
   color: #f8edeb;
-  width: 60%;
-  margin-left: 15vw;
+  /* width: 60%; */
+  /* margin-left: 15vw; */
   font-size: 40px;
   -webkit-text-stroke: 1px #212529;
+}
+@media(max-width: 1000px) {
+  body {
+    font-family: "PT Serif", serif;
+    background-image: url("/images/homepage.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150vh;
+    background-position: center;
+  }
+  /* .index {
+    height: 150vh;
+  } */
+  .welcome {
+    font-size: 4em;
+  }
+  .mantra {
+    font-size: 20px;
+  }
 }

@@ -11,7 +11,7 @@ h1 {
   font-size: 4em;
   font-family: "PT Serif", serif;
 }
-img {
+.article-image {
   display: flex;
   align-items: center;
   margin-left: 25%;

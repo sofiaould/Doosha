@@ -8,6 +8,7 @@ const fileUploader = require("../configs/cloudinary.config");
 /////////////////////////// video home ////////////////////////////////
 router.get("/homevideos", (req, res, next) => {
   Video.find()
+    .populate("user")
     .then((videos) => res.render("videos/videohome", { videos }))
     .catch((err) => next(err));
 });
@@ -51,6 +52,7 @@ router.get("/formvideo", (req, res, next) => {
 ////////////////////// video selected ////////////////////////////
 router.get("/videos/:id", (req, res, next) => {
   Video.findOne({ _id: req.params.id })
+    .populate("user")
     .then((video) => res.render("videos/videoselected", { video }))
     .catch((err) => next(err));
 });
